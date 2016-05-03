@@ -1,0 +1,150 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 form-custom">
+            <check if="{{ @success }}">
+                <div class="alert alert-success" role="alert">
+                    <p> {{ @message }} </p>
+                </div>
+            </check>
+            <h3>Add Team</h3>
+            <form class="form" method="POST" action="addTeam">
+                <div class="form-group">
+                    <label for="name">School Name</label>
+                    <input type="text" class="form-control" id="name" name="teamName" placeholder="Enter School Name" required>
+                </div>
+                <div class="form-group ">
+                    <label for="mascot">School Mascot</label>
+                    <input type="text" class="form-control" id="mascot" name="teamMascot" placeholder="Enter School Mascot" required>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+            <br /><hr />
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>School</th>
+                    <th>Mascot</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <repeat group="{{ @teams }}" value="{{ @item }}">
+                <tr>
+                    <td> {{ @item.opponent_name }} </td>
+                    <td> {{ @item.opponent_mascot }} </td>
+                </tr>
+                </repeat>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-6 form-custom">
+            <h3>Add Season</h3>
+            <form class="form" method="POST" action="addSeason">
+                <div class="form-group">
+                    <label for="name">Season Name</label>
+                    <input type="text" class="form-control" id="seasonName" name="seasonName" placeholder="Enter Season Name" required>
+                </div>
+                <div class="form-group ">
+                    <label for="mascot">Season Year</label>
+                    <input type="text" class="form-control" id="seasonYear" name="seasonYear" placeholder="Enter Season Year" required>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+            <br /><hr />
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Year</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <repeat group="{{ @seasons }}" value="{{ @item }}">
+                    <tr>
+                        <td> {{ @item.season_name }} </td>
+                        <td> {{ @item.season_year }} </td>
+                    </tr>
+                </repeat>
+
+                </tbody>
+            </table>
+            </div>
+    </div>
+
+    <div class="row"><br/><br/></div>
+
+    <div class="row">
+
+        <div class="col-md-12 form-custom">
+            <check if="{{ @success }}">
+                <div class="alert alert-success" role="alert">
+                    <p> {{ @message }} </p>
+                </div>
+            </check>
+            <h3>Add Player</h3>
+            <form class="form-inline" method="POST" action="addPlayer">
+                <div class="form-group">
+                    <label for="name">First Name</label>
+                    <input type="text" class="form-control" id="name" name="playerFName" placeholder="First Name" required>
+                </div>
+                <div class="form-group ">
+                    <label for="mascot">Last Name</label>
+                    <input type="text" class="form-control" id="mascot" name="playerLName" placeholder="Last Name" required>
+                </div>
+                <div class="form-group ">
+                    <label for="mascot">Number</label>
+                    <input type="text" class="form-control" id="mascot" name="playerNumber" placeholder="Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="playerClass">Class</label>
+                    <select name="playerClass" id="playerClass">
+                        <option value="Freshman">Freshman</option>
+                        <option value="Sophomore">Sophomore</option>
+                        <option value="Junior">Junior.</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+
+            <br /><hr />
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Number</th>
+                    <th>Class</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <repeat group="{{ @players }}" value="{{ @item }}">
+                    <tr>
+                        <td> {{ @item.first_name}} </td>
+                        <td> {{ @item.last_name }} </td>
+                        <td> {{ @item.jersey_number }} </td>
+                        <td> {{ @item.class }} </td>
+                    </tr>
+                </repeat>
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+
+</div>
