@@ -55,5 +55,21 @@ code {
 }
 
 .my-cont {
-    background: #F0FFFF;
+    display: flex;
+}
+
+.right-border {
+    border-right: 1px solid #2e6da4;
+}
+
+.border-cont {
+
+    margin-bottom: 200px;
+}
+
+.custom-btn {
+    margin-top: 20px;
+}
+.custom-btn-2 {
+    margin-left: 70px;
 }
