@@ -2912,11 +2912,11 @@ select[multiple].input-lg,
 
 .btn-primary {
   color: #fff;
-  background-color: #978366;
+  background-color: #2A506F;
   border-color: #88765c; }
   .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #796951;
+    background-color: #5bc0de;
     border-color: #635643; }
   .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
     background-image: none; }
