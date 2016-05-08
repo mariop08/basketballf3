@@ -1,7 +1,7 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 form-custom">
+<div class="container border-cont">
+    <div class="row my-cont">
+        <div class="col-md-6 form-custom right-border">
             <check if="{{ @success }}">
                 <div class="alert alert-success" role="alert">
                     <p> {{ @message }} </p>
@@ -17,7 +17,7 @@
                     <label for="mascot">School Mascot</label>
                     <input type="text" class="form-control" id="mascot" name="teamMascot" placeholder="Enter School Mascot" required>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
             <br /><hr />
@@ -54,7 +54,7 @@
                     <label for="mascot">Season Year</label>
                     <input type="text" class="form-control" id="seasonYear" name="seasonYear" placeholder="Enter Season Year" required>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
             <br /><hr />
@@ -106,14 +106,14 @@
                 </div>
                 <div class="form-group">
                     <label for="playerClass">Class</label>
-                    <select name="playerClass" id="playerClass">
+                    <select class="form-control" name="playerClass" id="playerClass">
                         <option value="Freshman">Freshman</option>
                         <option value="Sophomore">Sophomore</option>
                         <option value="Junior">Junior.</option>
                         <option value="Senior">Senior</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-primary custom-btn-2">Submit</button>
             </form>
 
 
@@ -145,6 +145,57 @@
 
 
 
+    </div>
+
+    <div class="row"><br/><br/></div>
+
+    <div class="row">
+        <div class="col-md-12 form-custom">
+
+            <h3>Add Game</h3>
+            <form class="form" method="POST" action="addGame">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Season</label>
+                        <select class="form-control" name="gameSeason" id="gameSeason">
+                            <repeat group="{{ @seasons }}" value="{{ @item }}">
+                                <option value="{{ @item.idSeason }}"> {{ @item.season_name }} {{ @item.season_year }} </option>
+                            </repeat>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name">Opponent</label>
+                        <select class="form-control" name="gameOpponentTeam" id="gameOpponentTeam">
+                            <repeat group="{{ @teams }}" value="{{ @item }}">
+                                <option value="{{ @item.opponent_id }}"> {{ @item.opponent_name }} </option>
+                            </repeat>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="gameResult">Result</label>
+                        <select class="form-control" name="gameResult" id="gameResult">
+                            <option value="W"> Win  </option>
+                            <option value="L"> Loss </option>
+                            <option value="D"> Draw </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="homeScore">Home Score</label>
+                        <input type="text" class="form-control" id="homeScore" name="gameHomeScore" placeholder="Home Score" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="opponentScore">Opponent Score</label>
+                        <input type="text" class="form-control" id="opponentScore" name="gameOpponentScore" placeholder="Opponent Score" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary  col-md-offset-5 custom-btn">Submit</button>
+            </form>
+
+        </div>
     </div>
 
 </div>
