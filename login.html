@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <check if="{{ @success }}">
+            <div class="alert alert-success" role="alert">
+                <p> {{ @message }} </p>
+            </div>
+        </check>
+        <div class="col-md-6 col-md-offset-3 form-custom">
+            <h3>Login</h3><br />
+            <form class="form" method="POST" action="addSeason">
+                <div class="form-group">
+                    <label for="name">Email</label>
+                    <input type="text" class="form-control" id="seasonName" name="seasonName" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group ">
+                    <label for="mascot">Password</label>
+                    <input type="text" class="form-control" id="seasonYear" name="seasonYear" placeholder="Enter Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary custom-btn">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
