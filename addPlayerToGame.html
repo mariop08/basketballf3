@@ -14,7 +14,7 @@
                     <form class="form" method="POST" action="addPlayerToGame">
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label for="name">Game</label>
+                                <label for="gamePlayed">Game</label>
                                 <select class="form-control" name="gamePlayed" id="gamePlayed">
                                     <repeat group="{{ @game }}" value="{{ @item }}">
                                         <option value="{{ @item.game_id }}"> {{ @item.date }} </option>
@@ -22,7 +22,7 @@
                                 </select>
                             </div>
                             <div class="form-group ">
-                                <label for="name">Season</label>
+                                <label for="season">Season</label>
                                 <select class="form-control" name="season" id="season">
                                     <repeat group="{{ @seasons }}" value="{{ @item }}">
                                         <option value="{{ @item.idSeason }}"> {{ @item.season_name }} {{ @item.season_year }} </option>
@@ -30,7 +30,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="name">Player</label>
+                                <label for="player">Player</label>
                                 <select class="form-control" name="player" id="player">
                                     <repeat group="{{ @players }}" value="{{ @item }}">
                                         <option value="{{ @item.player_id }}"> {{ @item.first_name }} {{ @item.last_name }} </option>
@@ -62,7 +62,7 @@
                                 <input type="number" class="form-control" id="blocks" name="blocks" placeholder="Blocks" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary custom-btn-2">Submit</button>
+                        <button type="submit" class="btn btn-primary col-md-offset-5 col-md-2 custom-btn">Submit</button>
                     </form>
 
 
