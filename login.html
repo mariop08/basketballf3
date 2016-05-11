@@ -1,22 +1,25 @@
 <div class="container">
     <div class="row">
-        <check if="{{ @success }}">
-            <div class="alert alert-success" role="alert">
-                <p> {{ @message }} </p>
-            </div>
-        </check>
         <div class="col-md-6 col-md-offset-3 form-custom">
+
+            <check if="{{ @error }}">
+                <div class="alert alert-danger" role="alert">
+                    <p> {{ @error }} </p>
+                </div>
+            </check>
+
             <h3>Login</h3><br />
-            <form class="form" method="POST" action="addSeason">
+
+            <form method="POST" action="authenticate">  <!-- Add action and method here-->
                 <div class="form-group">
-                    <label for="name">Email</label>
-                    <input type="text" class="form-control" id="seasonName" name="seasonName" placeholder="Enter Email" required>
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
-                <div class="form-group ">
-                    <label for="mascot">Password</label>
-                    <input type="text" class="form-control" id="seasonYear" name="seasonYear" placeholder="Enter Password" required>
+                <div class="form-group">
+                    <label for="pswd">Password</label>
+                    <input type="password" class="form-control" id="pswd" name="pswd" placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-primary custom-btn">Submit</button>
+                <input type="submit" class="btn btn-primary custom-btn" value="Login">
             </form>
 
         </div>
