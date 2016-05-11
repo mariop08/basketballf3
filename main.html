@@ -6,6 +6,40 @@
          <h3 class="text-center">Men's Basketball</h3>
 	</div>
     <div>
-        <h1 class="text-center">Display Lastest Game Results Here</h1>
+		<div class="container border-cont">
+			<div class="row">
+
+		        <div class="col-md-12 form-custom">
+		        	<table class="table table-hover">
+		                <thead>
+		                <tr>
+		                    <th>Season</th>
+		                    <th>Year</ht>
+		                    <th>Date</th>
+		                    <th>Opponent</th>
+		                    <th>Result</th>
+		                    <th>Home Score</th>
+		                    <th>Opponent Score</th>
+		                </tr>
+		                </thead>
+		                <tbody>
+
+		                <repeat group="{{ @game }}" value="{{ @item }}">
+		                <tr>
+		                    <td> {{ @item.season_name }} </td>
+		                    <td> {{ @item.season_year }} </td>
+		                    <td> {{ @item.date }} </td>
+							<td> {{ @item.opponent_name }} </td>
+		                    <td> {{ @item.result }} </td>
+		                    <td> {{ @item.home_score }} </td>
+		                    <td> {{ @item.opponent_score }} </td>
+		                </tr>
+		                </repeat>
+
+		                </tbody>
+		            </table>
+		        </div>
+		    </div>       
+		</div>
     </div>
 </div>

@@ -7,7 +7,7 @@
     <script src="js/jquery-ui.js"></script>
     <link href="css/lavish-bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
-    
+    <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -50,7 +50,7 @@
             <span class="icon-bar"></span>
           </button>
           <img class="navbar-header" src ="images/logo.png"/>
-          <a class="navbar-brand" href="/CSUFBasketballApp">CSUF Basketball</a>
+          <a class="navbar-brand" href="/basketballf3/">CSUF Basketball</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -62,6 +62,7 @@
                 <li><a href="addTeams">Add Teams</a></li>
                 <li><a href="addPlayers">Add Players</a></li>
                 <li><a href="addGames">Add Games</a></li>
+                <li><a href="addPlayerToGame">Add Player To Game</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -70,6 +71,7 @@
                 <li><a href="viewTeams">View Teams</a></li>
                 <li><a href="viewPlayers">View Players</a></li>
                 <li><a href="viewGames">View Games</a></li>
+                <li><a href="viewPlayersGames">View Player's Games</a></li>
               </ul>
             </li>
             <li><a href="about">About</a></li>

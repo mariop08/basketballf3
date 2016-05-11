@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center">Add A Player To A Game</h1>
+        <div class="container border-cont">
+            <div class="row">
+
+                <div class="col-md-12 form-custom">
+                    <check if="{{ @success }}">
+                        <div class="alert alert-success" role="alert">
+                            <p> {{ @message }} </p>
+                        </div>
+                    </check>
+                    <h3>Add Player To Game</h3>
+                    <form class="form" method="POST" action="addPlayerToGame">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label for="name">Game</label>
+                                <select class="form-control" name="gamePlayed" id="gamePlayed">
+                                    <repeat group="{{ @game }}" value="{{ @item }}">
+                                        <option value="{{ @item.game_id }}"> {{ @item.date }} </option>
+                                    </repeat>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <label for="name">Season</label>
+                                <select class="form-control" name="season" id="season">
+                                    <repeat group="{{ @seasons }}" value="{{ @item }}">
+                                        <option value="{{ @item.idSeason }}"> {{ @item.season_name }} {{ @item.season_year }} </option>
+                                    </repeat>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Player</label>
+                                <select class="form-control" name="player" id="player">
+                                    <repeat group="{{ @players }}" value="{{ @item }}">
+                                        <option value="{{ @item.player_id }}"> {{ @item.first_name }} {{ @item.last_name }} </option>
+                                    </repeat>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="points">Points</label>
+                                <input type="number" class="form-control" id="points" name="points" placeholder="Points" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="rebounds">Rebounds</label>
+                                <input type="number" class="form-control" id="rebounds" name="rebounds" placeholder="Rebounds" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="assists">Assists</label>
+                                <input type="number" class="form-control" id="assists" name="assists" placeholder="assists" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="steals">Steals</label>
+                                <input type="number" class="form-control" id="steals" name="steals" placeholder="Steals" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="blocks">Blocks</label>
+                                <input type="number" class="form-control" id="blocks" name="blocks" placeholder="Blocks" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary custom-btn-2">Submit</button>
+                    </form>
+
+
+                    <br /><hr />
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
