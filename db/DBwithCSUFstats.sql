@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2016 at 10:14 AM
+-- Generation Time: May 11, 2016 at 10:26 PM
 -- Server version: 5.7.9
 -- PHP Version: 5.6.16
 
@@ -96,17 +96,44 @@ CREATE TABLE IF NOT EXISTS `game` (
   PRIMARY KEY (`game_id`),
   KEY `season_fk_idx` (`season_id`),
   KEY `oppoent_fk_idx` (`opponent`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `game`
 --
 
 INSERT INTO `game` (`game_id`, `opponent`, `result`, `home_score`, `opponent_score`, `season_id`, `date`) VALUES
-(1, 1, 'W', 110, 100, 1, '1970-01-01'),
-(5, 1, 'L', 1, 2, 1, '2016-05-12'),
-(7, 1, 'L', 2, 1, 1, '2016-05-10'),
-(10, 5, 'D', 3, 3, 2, '2016-05-06');
+(1, 16, 'W', 106, 66, 3, '2015-11-06'),
+(12, 17, 'L', 74, 79, 3, '2015-11-13'),
+(13, 18, 'W', 77, 76, 3, '2015-11-17'),
+(14, 19, 'W', 67, 55, 3, '2015-11-21'),
+(15, 20, 'W', 80, 66, 3, '2015-11-24'),
+(16, 21, 'W', 75, 66, 3, '2015-11-28'),
+(17, 22, 'W', 88, 56, 3, '2015-12-01'),
+(18, 23, 'W', 70, 61, 3, '2015-12-04'),
+(19, 24, 'L', 69, 87, 3, '2015-12-06'),
+(20, 17, 'L', 70, 82, 3, '2015-12-12'),
+(21, 25, 'L', 69, 82, 3, '2015-12-18'),
+(22, 26, 'L', 60, 65, 3, '2015-12-19'),
+(23, 27, 'L', 82, 89, 3, '2015-12-29'),
+(24, 28, 'W', 75, 52, 3, '2016-01-02'),
+(25, 29, 'W', 79, 73, 4, '2016-01-07'),
+(26, 30, 'L', 75, 85, 4, '2016-01-09'),
+(27, 31, 'L', 79, 86, 4, '2015-12-16'),
+(28, 32, 'L', 59, 72, 4, '2016-01-20'),
+(29, 33, 'L', 75, 83, 4, '2016-01-23'),
+(30, 34, 'L', 64, 69, 4, '2016-01-27'),
+(31, 29, 'L', 71, 81, 4, '2016-01-30'),
+(32, 34, 'W', 61, 57, 4, '2016-02-04'),
+(33, 35, 'L', 68, 81, 4, '2016-02-06'),
+(34, 30, 'L', 67, 75, 4, '2016-02-10'),
+(35, 31, 'L', 59, 76, 4, '2016-02-13'),
+(36, 32, 'L', 77, 96, 4, '2016-02-17'),
+(37, 36, 'L', 57, 70, 4, '2016-02-20'),
+(38, 33, 'W', 78, 77, 4, '2016-02-25'),
+(39, 35, 'L', 62, 80, 4, '2016-02-27'),
+(40, 36, 'L', 73, 75, 4, '2016-03-02'),
+(41, 31, 'L', 44, 75, 4, '2016-03-10');
 
 -- --------------------------------------------------------
 
@@ -153,15 +180,34 @@ CREATE TABLE IF NOT EXISTS `opponents` (
   `opponent_name` varchar(45) DEFAULT NULL,
   `opponent_mascot` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`opponent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `opponents`
 --
 
 INSERT INTO `opponents` (`opponent_id`, `opponent_name`, `opponent_mascot`) VALUES
-(1, 'CSULB', 'Prospector Pete'),
-(5, 'Chapman University', 'Panther');
+(16, 'Bethesda University', 'Flames'),
+(17, 'Loyola Marymount', 'Iggy the Lion'),
+(18, 'University of the Pacific', 'Powercat'),
+(19, 'San Diego State University', 'Aztec Warrior'),
+(20, 'Southern Utah University', 'Thunderbirds'),
+(21, 'University of Nevada, Reno', 'Wolf Pack'),
+(22, 'California State University, Dominguez Hills', 'Bull'),
+(23, 'Seattle University', 'Rudy the Redhawk'),
+(24, 'Washington University in St. Louis', 'Bear'),
+(25, 'Oregon State University', 'Benny Beaver'),
+(26, 'University of Portland', 'Wally Pilot'),
+(27, 'Portland State University', 'Victor E. Viking'),
+(28, 'California State University, East Bay', 'Pioneer'),
+(29, 'University of California, Riverside', 'Scotty Highlander'),
+(30, 'California State University, Northridge', 'Matty the Matador'),
+(31, 'University of Hawaii', 'Rainbow Warriors'),
+(32, 'University of California, Irvine', 'Peter the Anteater'),
+(33, 'California Polytechnic State University', 'Musty the Mustang'),
+(34, 'University of California, Davis', 'Gunrock the Mustang'),
+(35, 'University of California, Santa Barbara', 'Olé'),
+(36, 'California State University, Long Beach', 'Prospector Pete');
 
 -- --------------------------------------------------------
 
@@ -177,17 +223,26 @@ CREATE TABLE IF NOT EXISTS `player` (
   `jersey_number` varchar(45) DEFAULT NULL,
   `class` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`player_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `player`
 --
 
 INSERT INTO `player` (`player_id`, `first_name`, `last_name`, `jersey_number`, `class`) VALUES
-(1, 'Mario', 'Pena', '15', 'Freshman'),
-(2, 'Skyler', 'Lister Aley', '13', 'Freshman'),
-(3, 'Tuffy', 'Titan', '33', 'Junior'),
-(4, 'John', 'Smith', '44', 'Freshman');
+(5, 'Kyle', 'Allman', '0', 'Freshman'),
+(6, 'Tre''', 'Coggins', '1', 'Junior'),
+(7, 'Lionheart', 'Leslie', '2', 'Junior'),
+(8, 'Tim', 'Myles', '3', 'Junior'),
+(9, 'Malcolm', 'Henderson', '5', 'Senior'),
+(10, 'Malcolm', 'Brooks', '11', 'Senior'),
+(11, 'Jamal', 'Smith', '12', 'Freshman'),
+(12, 'Khalil', 'Ahmad', '14', 'Freshman'),
+(13, 'Jamar', 'Akoh', '15', 'Sophomore'),
+(14, 'Sheldon', 'Blackwell', '22', 'Junior'),
+(15, 'Kennedy', 'Esume', '33', 'Senior'),
+(16, 'Lanerryl (Grad)', 'Johnson', '10', 'Senior'),
+(17, 'Rashard (Grad)', 'Todd', '23', 'Senior');
 
 -- --------------------------------------------------------
 
@@ -219,15 +274,15 @@ CREATE TABLE IF NOT EXISTS `season` (
   `season_name` varchar(45) DEFAULT NULL,
   `season_year` int(11) DEFAULT NULL,
   PRIMARY KEY (`idSeason`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `season`
 --
 
 INSERT INTO `season` (`idSeason`, `season_name`, `season_year`) VALUES
-(1, 'Fall', 2016),
-(2, 'SPRING', 2016);
+(3, 'Fall', 2015),
+(4, 'Winter', 2016);
 
 -- --------------------------------------------------------
 
@@ -251,15 +306,24 @@ CREATE TABLE IF NOT EXISTS `stats` (
   KEY `player_fk_idx` (`PlayerID`),
   KEY `game_fk_idx` (`GameID`),
   KEY `season_fk_idx` (`SeasonID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `stats`
 --
 
 INSERT INTO `stats` (`StatsID`, `PlayerID`, `GameID`, `points`, `rebounds`, `assists`, `steals`, `blocks`, `SeasonID`, `Statscol`) VALUES
-(1, 1, 1, 1, 1, 1, 1, '1', 1, NULL),
-(2, 2, 7, 1, 1, 1, 1, '1', 1, NULL);
+(3, 13, 1, 2, 3, 2, 0, '0', 3, NULL),
+(4, 15, 1, 6, 5, 0, 2, '1', 3, NULL),
+(5, 6, 1, 18, 5, 2, 2, '0', 3, NULL),
+(6, 10, 1, 17, 2, 1, 0, '0', 3, NULL),
+(7, 5, 1, 14, 2, 0, 0, '0', 3, NULL),
+(8, 7, 1, 9, 3, 1, 2, '0', 3, NULL),
+(9, 9, 1, 6, 8, 0, 1, '0', 3, NULL),
+(10, 11, 1, 0, 0, 1, 0, '0', 3, NULL),
+(11, 12, 1, 13, 7, 2, 0, '1', 3, NULL),
+(12, 16, 1, 14, 1, 5, 0, '0', 3, NULL),
+(13, 17, 1, 7, 7, 0, 1, '1', 3, NULL);
 
 -- --------------------------------------------------------
 
