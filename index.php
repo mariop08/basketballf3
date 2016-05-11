@@ -294,7 +294,7 @@ $f3->route('POST /addGame',
 		$game->result = $result;
 		$game->home_score = $homeScore;
 		$game->opponent_score = $opponentScore;
-		$game->season_id = $opponent;
+		$game->season_id = $season;
 		$game->date = $date;
 
 		$game->save();
