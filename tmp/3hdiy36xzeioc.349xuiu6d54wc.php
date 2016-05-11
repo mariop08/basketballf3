@@ -8,9 +8,9 @@
                         <div class="form-group">
                             <label for="name">Season</label>
                             <select class="form-control" name="gameSeason" id="gameSeason">
-                                <repeat group="{{ @seasons }}" value="{{ @item }}">
-                                    <option value="{{ @item.idSeason }}"> {{ @item.season_name }} {{ @item.season_year }} </option>
-                                </repeat>
+                                <?php foreach (($seasons?:array()) as $item): ?>
+                                    <option value="<?php echo $item['idSeason']; ?>"> <?php echo $item['season_name']; ?> <?php echo $item['season_year']; ?> </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -20,9 +20,9 @@
                         <div class="form-group ">
                             <label for="name">Opponent</label>
                             <select class="form-control" name="gameOpponentTeam" id="gameOpponentTeam">
-                                <repeat group="{{ @teams }}" value="{{ @item }}">
-                                    <option value="{{ @item.opponent_id }}"> {{ @item.opponent_name }} </option>
-                                </repeat>
+                                <?php foreach (($teams?:array()) as $item): ?>
+                                    <option value="<?php echo $item['opponent_id']; ?>"> <?php echo $item['opponent_name']; ?> </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>

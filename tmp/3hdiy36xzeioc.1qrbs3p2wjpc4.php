@@ -2,11 +2,11 @@
 <div class="container border-cont">
     <div class="row my-cont">
         <div class="col-md-6 form-custom right-border">
-            <check if="{{ @success }}">
+            <?php if ($success): ?>
                 <div class="alert alert-success" role="alert">
-                    <p> {{ @message }} </p>
+                    <p> <?php echo $message; ?> </p>
                 </div>
-            </check>
+            <?php endif; ?>
             <h3>Add Team</h3>
             <form class="form" method="POST" action="addTeam">
                 <div class="form-group">

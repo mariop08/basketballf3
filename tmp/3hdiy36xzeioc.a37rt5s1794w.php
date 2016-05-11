@@ -16,17 +16,17 @@
                 </thead>
                 <tbody>
 
-                <repeat group="{{ @game }}" value="{{ @item }}">
+                <?php foreach (($game?:array()) as $item): ?>
                 <tr>
-                    <td> {{ @item.season_name }} </td>
-                    <td> {{ @item.season_year }} </td>
-                    <td> {{ @item.date }} </td>
-					<td> {{ @item.opponent_name }} </td>
-                    <td> {{ @item.result }} </td>
-                    <td> {{ @item.home_score }} </td>
-                    <td> {{ @item.opponent_score }} </td>
+                    <td> <?php echo $item['season_name']; ?> </td>
+                    <td> <?php echo $item['season_year']; ?> </td>
+                    <td> <?php echo $item['date']; ?> </td>
+					<td> <?php echo $item['opponent_name']; ?> </td>
+                    <td> <?php echo $item['result']; ?> </td>
+                    <td> <?php echo $item['home_score']; ?> </td>
+                    <td> <?php echo $item['opponent_score']; ?> </td>
                 </tr>
-                </repeat>
+                <?php endforeach; ?>
 
                 </tbody>
             </table>

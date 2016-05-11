@@ -25,12 +25,40 @@ $f3->route('GET /',
 );
 $f3->route('GET /addGames',
 	function($f3) {
+		if($f3->exists('SESSION.message'))
+		{
+
+			$f3->set('success', 'set');
+			$f3->set('message', $f3->get('SESSION.message'));
+			$f3->clear('SESSION.message');
+		}
+		$season = new DB\SQL\Mapper($f3->get('DB'),'season');	
+		$team = new DB\SQL\Mapper($f3->get('DB'),'opponents');
+
+		$f3->set('teams', $team->find());
+		$f3->set('seasons', $season->find());
+
+		$f3->set('title', 'CSUF Basketball - Add Games');		
 		$f3->set('content', 'addGames.html');
 		echo \Template::instance()->render('template.html');
 	}
 );
 $f3->route('GET /addPlayers',
 	function($f3) {
+		if($f3->exists('SESSION.message'))
+		{
+
+			$f3->set('success', 'set');
+			$f3->set('message', $f3->get('SESSION.message'));
+			$f3->clear('SESSION.message');
+		}
+
+		$player = new DB\SQL\Mapper($f3->get('DB'),'player');
+
+		$f3->set('title', 'CSUF Basketball - Dashboard');
+		$f3->set('players', $player->find());
+
+		$f3->set('title', 'CSUF Basketball - Add Players');
 		$f3->set('content', 'addPlayers.html');
 		echo \Template::instance()->render('template.html');
 	}
@@ -46,33 +74,39 @@ $f3->route('GET /addTeams',
 			$f3->clear('SESSION.message');
 		}
 
-		$season = new DB\SQL\Mapper($f3->get('DB'),'season');
-		$team = new DB\SQL\Mapper($f3->get('DB'),'opponents');
-		$player = new DB\SQL\Mapper($f3->get('DB'),'player');
-
-
-		$f3->set('title', 'CSUF Basketball - Dashboard');
-		$f3->set('teams', $team->find() );
-		$f3->set('seasons', $season->find());
-		$f3->set('players', $player->find());
+		$f3->set('title', 'CSUF Basketball - Add Teams');
 		$f3->set('content', 'addTeams.html');
 		echo \Template::instance()->render('template.html');
 	}
 );
 $f3->route('GET /viewGames',
 	function($f3) {
+		$game = new DB\SQL\Mapper($f3->get('DB'),'gameCombined');
+		$f3->set('game', $game->find());
+
+		$f3->set('title', 'CSUF Basketball - View Games');
 		$f3->set('content', 'viewGames.html');
 		echo \Template::instance()->render('template.html');
 	}
 );
 $f3->route('GET /viewPlayers',
 	function($f3) {
+		$player = new DB\SQL\Mapper($f3->get('DB'),'player');
+		$f3->set('players', $player->find());
+
+		$f3->set('title', 'CSUF Basketball - View Players');
 		$f3->set('content', 'viewPlayers.html');
 		echo \Template::instance()->render('template.html');
 	}
 );
 $f3->route('GET /viewTeams',
 	function($f3) {
+		$season = new DB\SQL\Mapper($f3->get('DB'),'season');	
+		$team = new DB\SQL\Mapper($f3->get('DB'),'opponents');
+		$f3->set('teams', $team->find());
+		$f3->set('seasons', $season->find());
+
+		$f3->set('title', 'CSUF Basketball - View Teams');
 		$f3->set('content', 'viewTeams.html');
 		echo \Template::instance()->render('template.html');
 	}
@@ -172,7 +206,38 @@ $f3->route('POST /addPlayer',
 
 		$f3->set('SESSION.message', 'Player Added successfully');
 
-		$f3->reroute('/addTeams');
+		$f3->reroute('/addPlayers');
+
+	}
+);
+
+$f3->route('POST /addGame',
+	function($f3) {
+		$season = $f3->get('POST.gameSeason');
+		$date = $f3->get('POST.gameDate');
+		$opponent = $f3->get('POST.gameOpponentTeam');
+		$result = $f3->get('POST.gameResult');
+		$homeScore = $f3->get('POST.gameHomeScore');
+		$opponentScore = $f3->get('POST.gameOpponentScore');
+
+		$f3->get('logger')->write('New Game Added: '.$season.', '.$date.', '.$opponent.', '.$result.', '.$homeScore.', '.$opponentScore.', ');
+
+		$day1 = date('Y-m-d H:i:s', $date);
+
+		$game = new DB\SQL\Mapper($f3->get('DB'),'game');
+
+		$game->opponent = $opponent;
+		$game->result = $result;
+		$game->home_score = $homeScore;
+		$game->opponent_score = $opponentScore;
+		$game->season_id = $opponent;
+		$game->date = $day1;
+
+		$game->save();
+
+		$f3->set('SESSION.message', 'Game Added successfully');
+
+		$f3->reroute('/addGames');
 
 	}
 );

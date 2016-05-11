@@ -2,11 +2,11 @@
     <div class="row">
 
         <div class="col-md-12 form-custom">
-            <check if="{{ @success }}">
+            <?php if ($success): ?>
                 <div class="alert alert-success" role="alert">
-                    <p> {{ @message }} </p>
+                    <p> <?php echo $message; ?> </p>
                 </div>
-            </check>
+            <?php endif; ?>
             <h3>Add Player</h3>
             <form class="form-inline" method="POST" action="addPlayer">
                 <div class="form-group">

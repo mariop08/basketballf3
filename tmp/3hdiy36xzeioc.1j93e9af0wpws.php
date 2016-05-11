@@ -13,14 +13,14 @@
                 </thead>
                 <tbody>
 
-                <repeat group="{{ @players }}" value="{{ @item }}">
+                <?php foreach (($players?:array()) as $item): ?>
                     <tr>
-                        <td> {{ @item.first_name}} </td>
-                        <td> {{ @item.last_name }} </td>
-                        <td> {{ @item.jersey_number }} </td>
-                        <td> {{ @item.class }} </td>
+                        <td> <?php echo $item['first_name']; ?> </td>
+                        <td> <?php echo $item['last_name']; ?> </td>
+                        <td> <?php echo $item['jersey_number']; ?> </td>
+                        <td> <?php echo $item['class']; ?> </td>
                     </tr>
-                </repeat>
+                <?php endforeach; ?>
 
                 </tbody>
             </table>

@@ -11,12 +11,12 @@
                 </thead>
                 <tbody>
 
-                <repeat group="{{ @teams }}" value="{{ @item }}">
+                <?php foreach (($teams?:array()) as $item): ?>
                 <tr>
-                    <td> {{ @item.opponent_name }} </td>
-                    <td> {{ @item.opponent_mascot }} </td>
+                    <td> <?php echo $item['opponent_name']; ?> </td>
+                    <td> <?php echo $item['opponent_mascot']; ?> </td>
                 </tr>
-                </repeat>
+                <?php endforeach; ?>
 
                 </tbody>
             </table>
@@ -30,12 +30,12 @@
                 </thead>
                 <tbody>
 
-                <repeat group="{{ @seasons }}" value="{{ @item }}">
+                <?php foreach (($seasons?:array()) as $item): ?>
                     <tr>
-                        <td> {{ @item.season_name }} </td>
-                        <td> {{ @item.season_year }} </td>
+                        <td> <?php echo $item['season_name']; ?> </td>
+                        <td> <?php echo $item['season_year']; ?> </td>
                     </tr>
-                </repeat>
+                <?php endforeach; ?>
 
                 </tbody>
             </table>
