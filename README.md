@@ -4,9 +4,20 @@
 Libraries and Frameworks: Bootstrap, Lavish Bootstrap, F3(Fat-Free Framework)
 
 Database operations are handled with F3 SQL mapper
-####Example of Hydrating SQL Mapper
+####Example of inserting records with SQL Mapper
+```PHP
+$team = new DB\SQL\Mapper($f3->get('DB'),'opponents');
+
+		$team->opponent_name = $teamName;
+		$team->opponent_mascot = $teamMascot;
+		$team->save();
 ```
-$user = new DB\SQL\Mapper($f3->get('DB'),'administrators');
+###Example of retreving records with SQL Mapper
+```
+$player = new DB\SQL\Mapper($f3->get('DB'),'player');
+$player->load(array('playerID'=>'Mario'));
+if ($player->dry())
+    echo 'No record matching criteria';
 ```
 
 ##GET Routes
