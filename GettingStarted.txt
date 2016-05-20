@@ -1,0 +1,23 @@
+CSUF Basketball App
+Mario Pena & Burton Lister Aley
+
+Installing The App
+1. Copy "basketballf3" folder into the "www" folder of your PHP HTTP server (or other default app folder)
+
+2. Open MySQL phpMyAdmin or other MySQL admin program (Server should be running on localhost port 3306).
+
+3. Create a database named "mydb" on the MySQL server
+	MySQL > CREATE DATABASE mydb;
+
+4. Create a user account "testuser" with password "123456" for database "mydb" with all privledges
+	MySQL > GRANT ALL PRIVILEGES 
+		ON mydb.* 
+		TO 'testuser'@'localhost' 
+		IDENTIFIED BY '123456' 
+		WITH GRANT OPTION;
+
+5. Run all SQL commands contained in the file "DBwithCSUFstats.sql" on database"mydb". This will populate "mydb" with stats.
+
+Running The App
+1. Make sure both your PHP HTTP Server and MySQL server are running
+2. Navigate to http://localhost/basketballf3/ in your browser

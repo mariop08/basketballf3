@@ -11,34 +11,6 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-  <!-- Modal added this to implement a login modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="loginModalLabel">Login</h4>
-        </div>
-        <div class="modal-body">
-          <form method="POST" action="authenticate">  <!-- Add action and method here-->
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="pswd">Password</label>
-                <input type="password" class="form-control" id="pswd" name="pswd" placeholder="Password">
-              </div>
-            <input type="submit" class="btn btn-primary" value="Login">
-            <input type="button" class="btn btn-default" data-dismiss="modal" value="Close">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End of Modal change -->
-
-
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -74,14 +46,25 @@
                 <li><a href="viewPlayersGames">View Player's Games</a></li>
               </ul>
             </li>
-            <li><a href="about">About</a></li>
-            <li><a href="contact">Contact</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" data-toggle="modal" data-target="#loginModal">
-            <button type="button" class="btn btn-info">Login</button></a>
-            </li>
-          </ul>
+
+          <?php if ($SESSION['user']): ?>
+            
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="logout">
+                <button type="button" class="btn btn-info">Logout</button></a>
+                </li>
+              </ul>
+            
+            <?php else: ?>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="login">
+                  <button type="button" class="btn btn-info">Login</button></a>
+                </li>
+              </ul>
+            
+          <?php endif; ?>
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
