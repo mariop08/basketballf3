@@ -15,7 +15,7 @@ new DB\SQL(
 
 $f3->set('logger',$logger = new Log('records.log'));
 
-
+//GET ROUTES
 $f3->route('GET /',
     function($f3) {
     	$game = new DB\SQL\Mapper($f3->get('DB'),'gameCombined');
@@ -127,7 +127,6 @@ $f3->route('GET /addTeams',
 			$f3->reroute('/login');
 		}
 	}
-
 );
 $f3->route('GET /viewGames',
 	function($f3) {
@@ -171,13 +170,6 @@ $f3->route('GET /viewPlayersGames',
 		echo \Template::instance()->render('template.html');
 	}
 );
-$f3->route('GET /about',
-	function($f3) {
-
-		$f3->set('content', 'login.html');
-		echo \Template::instance()->render('template.html');
-	}
-);
 $f3->route('GET /login',
 	function($f3) {
 
@@ -204,6 +196,7 @@ $f3->route('GET /logout',
 		$f3->reroute('login');
 	}
 );
+//POST ROUTES
 $f3->route('POST /authenticate',
 	function($f3) {
 
@@ -324,7 +317,6 @@ $f3->route('POST /addPlayerToGame',
 
 	}
 );
-
 
 $f3->route('POST /addGame',
 	function($f3) {
