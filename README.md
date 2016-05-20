@@ -4,6 +4,10 @@
 Libraries and Frameworks: Bootstrap, Lavish Bootstrap, F3(Fat-Free Framework)
 
 Database operations are handled with F3 SQL mapper
+####Example of Hydrating SQL Mapper
+```
+$user = new DB\SQL\Mapper($f3->get('DB'),'administrators');
+```
 
 ##GET Routes
 URL|Description
