@@ -21,3 +21,9 @@ Installing The App
 Running The App
 1. Make sure both your PHP HTTP Server and MySQL server are running
 2. Navigate to http://localhost/basketballf3/ in your browser
+
+To Add Data To The Database
+1. Click login button
+2. Use  Email: "test@gmail.com"
+	Password: "123456"
+3. When finished press logout button
